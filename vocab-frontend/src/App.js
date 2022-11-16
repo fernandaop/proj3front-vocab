@@ -11,6 +11,7 @@ function App() {
       .get("http://localhost:8000/api/notes/")
       .then((res) => setVocabs(res.data));
   }, []);
+  
 
   return (
     <div className="App">
