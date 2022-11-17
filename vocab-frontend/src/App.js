@@ -9,25 +9,15 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/notes/")
+      .get("http://127.0.0.1:8000/api/palavras/rand/")
       .then((res) => setVocabs(res.data));
   }, []);
   
-  var palavra = vocabs;
-  const comp = 0;
-  console.log(palavra);
   //comparar palavra com o que o usuario digitou letra por letra
   //se for igual, mostrar a palavra
   //se for diferente, mostrar a palavra com a letra errada em vermelho
   //se for igual, mostrar a palavra com a letra correta em verde
-  function compareWords(palavrausuario){
-    for (let i = 0; i < palavra.length; i++) {
-      if (palavra[i] === palavrausuario[i]) {
-        comp = 1;
-      } else {
-        comp= -1;}
-      return comp;
-  }
+
   return (
     <div className="App">
       <div className="appbar">
@@ -36,11 +26,10 @@ function App() {
       <h1>
         <span className="titlev">VOCAB</span>
       </h1>
-      <Vocab>{vocabs.title}</Vocab>
-      <Words></Words>
+      {/* <Vocab>{vocabs.palavra}</Vocab> */}
+      <Words palavra={vocabs.palavra}></Words>
     </div>
   );
-  }
 }
 
 export default App;
