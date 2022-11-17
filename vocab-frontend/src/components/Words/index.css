@@ -16,3 +16,10 @@
     border-radius: 5px;
     font-family: "Permanent Marker", cursive;
   }
+
+.mudaCor{
+    color: green;
+}
+.mudaCor2{
+    color: blue;
+}
