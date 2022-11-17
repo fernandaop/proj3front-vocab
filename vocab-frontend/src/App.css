@@ -1,7 +1,68 @@
+html{
+  background: #6E5C62;
+}
+
 .App {
   text-align: center;
 }
 
+.appbar-button{
+  background-color: #222222;
+  border-color: transparent;
+  color: #fafaff;
+  font-family: Mitr, sans-serif;
+  font-weight: 4vh;
+}
+.title{
+  font-size: 1.5em;
+  text-align: center;
+  color: #333;
+}
+.appbar{
+  background: #222222;
+  color: #ffffff;
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.titlev{
+  color: #FAFAFF;
+  font-family: 'Mitr', sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+  margin: 2px;
+  font-weight: bold;
+}
+
+h1{
+  font-weight: 600;
+  font-size: 4vh;
+  line-height: 6vh;
+  height: 6vh;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.appbar2{
+  height: 6vh;
+  flex-shrink: 0;
+  max-width: 720px;
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 5vh 5vh 1fr 5vh 5vh;
+  grid-gap: 0;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

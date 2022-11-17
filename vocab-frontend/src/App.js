@@ -15,9 +15,13 @@ function App() {
 
   return (
     <div className="App">
-      {vocabs.map((vocab) => (
-        <Vocab title={vocab.title}>{vocab.content}</Vocab>
-      ))}
+      <div className="appbar">
+        <button className="appbar-button">Uno</button>
+      </div>
+      <h1>
+        <span className="titlev">VOCAB</span>
+      </h1>
+      <Vocab title={vocabs.title}>{vocabs.content}</Vocab>
     </div>
   );
 }
