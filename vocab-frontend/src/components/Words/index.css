@@ -9,14 +9,23 @@
     width: 200px;
     display: flex;
     flex-direction: column;
-    min-height: 100px;
-    margin: 10px 5px;
-    padding: 10px;
-    box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
-    border-radius: 5px;
-    font-family: "Permanent Marker", cursive;
+    justify-content: center;
   }
 
+.word{
+    display: flex;
+    flex-wrap: nowrap;
+    grid-gap: 0.5vh;
+    justify-content: center;
+}  
+.letter{
+    width: 8vmin;
+    height: 8vmin;
+    border-radius: 10%;
+    background-color: #615458;
+    color: #fff;
+    font-size: 3vmin;
+}
 .mudaCor{
     color: green;
 }

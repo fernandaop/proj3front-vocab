@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import Words from "./components/Words";
 
 function App() {
-  const [vocabs, setVocabs] = useState([]); // Remova o array de notes que existia na versão anterior
+  // const [vocabs, setVocabs] = useState([]); // Remova o array de notes que existia na versão anterior
 
-  useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/api/palavras/rand/")
-      .then((res) => setVocabs(res.data));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://127.0.0.1:8000/api/palavras/rand/")
+  //     .then((res) => setVocabs(res.data));
+  // }, []);
   
   //comparar palavra com o que o usuario digitou letra por letra
   //se for igual, mostrar a palavra
@@ -26,8 +26,10 @@ function App() {
       <h1>
         <span className="titlev">VOCAB</span>
       </h1>
+      <div className="words">
       {/* <Vocab>{vocabs.palavra}</Vocab> */}
-      <Words palavra={vocabs.palavra}></Words>
+      <Words palavra={"teste"}></Words>
+      </div>
     </div>
   );
 }

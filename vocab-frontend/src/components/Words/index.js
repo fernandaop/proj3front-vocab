@@ -2,7 +2,11 @@ import React from "react";
 import "./index.css";
 
 export default function Words(props) {
-  const [tentativa, setTentativa] = React.useState("");
+  const [tentativaa, setTentativaa] = React.useState("");
+  const [tentativab, setTentativab] = React.useState("");
+  const [tentativac, setTentativac] = React.useState("");
+  const [tentativad, setTentativad] = React.useState("");
+  const [tentativae, setTentativae] = React.useState("");
   const [tentativa1, setTentativa1] = React.useState("");
   const [tentativa2, setTentativa2] = React.useState("");
   const [tentativa3, setTentativa3] = React.useState("");
@@ -19,11 +23,26 @@ export default function Words(props) {
     }
     return arr;
 }
-  console.log(dicio_letras());
-
-  const entradaChang = (e) => {
-    setTentativa(e.target.value);
+  //console.log(dicio_letras());
+  let letras = [];
+  function entradaChang1(e) {
+    setTentativaa(e.target.value);
   };
+  function entradaChang2(e){
+    setTentativab(e.target.value);
+  };
+  function entradaChang3(e){
+    setTentativac(e.target.value);
+  };
+  function entradaChang4(e){
+    setTentativad(e.target.value);
+  };
+  function entradaChang5(e){
+    setTentativae(e.target.value);
+  };
+  var tentativa = tentativaa + tentativab + tentativac + tentativad + tentativae;
+  console.log(tentativa);
+  
 
   const comparaEntrada  = (e) => {
     e.preventDefault();
@@ -97,8 +116,78 @@ export default function Words(props) {
     {(tentativa6.length > 0 && props.palavra[3] === tentativa6[3]) ? <div className="mudaCor">{tentativa6[3]}</div> : (tentativa6.length > 0 && props.palavra.includes(tentativa6[3])) ? <div className="mudaCor2">{tentativa6[3]}</div> : <div>{tentativa6[3]}</div>}
     {(tentativa6.length > 0 && props.palavra[4] === tentativa6[4]) ? <div className="mudaCor">{tentativa6[4]}</div> : (tentativa6.length > 0 && props.palavra.includes(tentativa6[4])) ? <div className="mudaCor2">{tentativa6[4]}</div> : <div>{tentativa6[4]}</div>}
   </div>
-  <input type="text" id="name" name="name" required
-       minLength="5" maxLength="5" size="10" onChange={entradaChang}></input>
+  <div className="word">
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang1}></input>
+    <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang2}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang3}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang4}></input>
+  <input className="letter" type="text" id="name" name="name" required
+      minLength="1" maxLength="1" size="1" onChange={entradaChang5}></input>
+  </div>
+  <div className="word">
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang1}></input>
+    <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang2}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang3}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang4}></input>
+  <input className="letter" type="text" id="name" name="name" required
+      minLength="1" maxLength="1" size="1" onChange={entradaChang5}></input>
+  </div>
+  <div className="word">
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang1}></input>
+    <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang2}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang3}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang4}></input>
+  <input className="letter" type="text" id="name" name="name" required
+      minLength="1" maxLength="1" size="1" onChange={entradaChang5}></input>
+  </div>
+  <div className="word">
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang1}></input>
+    <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang2}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang3}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang4}></input>
+  <input className="letter" type="text" id="name" name="name" required
+      minLength="1" maxLength="1" size="1" onChange={entradaChang5}></input>
+  </div>
+  <div className="word">
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang1}></input>
+    <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang2}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang3}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang4}></input>
+  <input className="letter" type="text" id="name" name="name" required
+      minLength="1" maxLength="1" size="1" onChange={entradaChang5}></input>
+  </div>
+  <div className="word">
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang1}></input>
+    <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang2}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang3}></input>
+  <input className="letter" type="text" id="name" name="name" required
+       minLength="1" maxLength="1" size="1" onChange={entradaChang4}></input>
+  <input className="letter" type="text" id="name" name="name" required
+      minLength="1" maxLength="1" size="1" onChange={entradaChang5}></input>
+  </div>
   <input type={"submit"} value={"Submit"} onClick={comparaEntrada}></input>
   </div>);
 }
