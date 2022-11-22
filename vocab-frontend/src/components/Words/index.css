@@ -3,6 +3,8 @@
     justify-content: space-around;
     align-items: row;
     width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .card {
@@ -31,4 +33,30 @@
 }
 .mudaCor2{
     color: blue;
+}
+.green{
+    width: 30px;
+    height: 30px;
+    border-radius: 10%;
+    background-color: green;
+    font-size: 3vmin;
+    color: black;
+}
+
+.yellow{
+    width: 30px;
+    height: 30px;
+    border-radius: 10%;
+    background-color: yellow;
+    font-size: 3vmin;
+    color: black;
+}
+
+.gray{
+    width: 30px;
+    height: 30px;
+    border-radius: 10%;
+    background-color: gray;
+    font-size: 3vmin;
+    color: black;
 }
