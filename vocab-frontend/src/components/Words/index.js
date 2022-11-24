@@ -365,7 +365,7 @@ export default function Words(props) {
   {inputOrTentativa4()}
   {inputOrTentativa5()}
   {inputOrTentativa6()}
-  <input className="btn" type={"submit"} value={"Submit"} ref={submitFlag} onKeyDown={comparaEntrada}></input>
+  <input className="btn" type={"submit"} value={"Enviar"} ref={submitFlag} onKeyDown={comparaEntrada} onClick={comparaEntrada}></input>
 
   <button className="btn" onClick={tentarNovamente}>Jogar Novamente</button>
   </div>);
