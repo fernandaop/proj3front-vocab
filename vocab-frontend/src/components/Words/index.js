@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./index.css";
 
 export default function Words(props) {
@@ -15,6 +15,16 @@ export default function Words(props) {
   const [color5, setColor5] = React.useState(["gray", "gray", "gray", "gray", "gray"]);
   const [tentativa6, setTentativa6] = React.useState("");
   const [color6, setColor6] = React.useState(["gray", "gray", "gray", "gray", "gray"]);
+  const [letra1, setLetra1] = React.useState("");
+  const [letra2, setLetra2] = React.useState("");
+  const [letra3, setLetra3] = React.useState("");
+  const [letra4, setLetra4] = React.useState("");
+  const [letra5, setLetra5] = React.useState("");
+  const letra1Flag = useRef(null);
+  const letra2Flag = useRef(null);
+  const letra3Flag = useRef(null);
+  const letra4Flag = useRef(null);
+  const letra5Flag = useRef(null);
 
   // function compareWords(palavrausuario){
   //   for (let i = 0; i < palavra.length; i++) {
@@ -67,12 +77,68 @@ export default function Words(props) {
     }
   }
 
-  const entradaChang = (e) => {
-    setTentativa(e.target.value);
+  const letra1Change = (e) => {
+    setLetra1(e.target.value);
+    if (e.target.value.length === 1) {
+      letra2Flag.current.focus();
+    } else {
+      letra1Flag.current.focus();
+    }
   };
+  const letra2Change = (e) => {
+    setLetra2(e.target.value);
+    if (e.target.value.length === 1) {
+      letra3Flag.current.focus();
+    } else {
+      letra1Flag.current.focus();
+    }
+  };
+  const letra3Change = (e) => {
+    setLetra3(e.target.value);
+    if (e.target.value.length === 1) {
+      letra4Flag.current.focus();
+    } else {
+      letra2Flag.current.focus();
+    }
+  };
+  const letra4Change = (e) => {
+    setLetra4(e.target.value);
+    if (e.target.value.length === 1) {
+      letra5Flag.current.focus();
+    } else {
+      letra3Flag.current.focus();
+    }
+  };
+  const letra5Change = (e) => {
+    setLetra5(e.target.value);
+    console.log(letra5);
+    if (e.target.value.length === 1) {
+      setTentativa(letra1 + letra2 + letra3 + letra4 + e.target.value);
+    } else {
+      letra4Flag.current.focus();
+    }
+  };
+
+  // function removerAcentos(palavra) {
+  //   for(var i = 0; i < palavra.length; i++) {
+  //     palavra = palavra.replace(new RegExp('[áàâã]','gi'), 'a');
+  //     palavra = palavra.replace(new RegExp('[éèê]','gi'), 'e');
+  //     palavra = palavra.replace(new RegExp('[íìî]','gi'), 'i');
+  //     palavra = palavra.replace(new RegExp('[óòôõ]','gi'), 'o');
+  //     palavra = palavra.replace(new RegExp('[úùû]','gi'), 'u');
+  //     palavra = palavra.replace(new RegExp('[ç]','gi'), 'c');
+  //   }
+  //   return palavra;
+  // };
 
   const comparaEntrada  = (e) => {
     e.preventDefault();
+    setLetra1("");
+    setLetra2("");
+    setLetra3("");
+    setLetra4("");
+    setLetra5("");
+    letra1Flag.current.focus();
     if (tentativa.length < 5) {
       alert("Digite uma palavra de 5 letras")
     } else {
@@ -116,11 +182,17 @@ export default function Words(props) {
     setColor4(["gray", "gray", "gray", "gray", "gray"]);
     setColor5(["gray", "gray", "gray", "gray", "gray"]);
     setColor6(["gray", "gray", "gray", "gray", "gray"]);
+    letra1Flag.current.focus();
+    setLetra1("");
+    setLetra2("");
+    setLetra3("");
+    setLetra4("");
+    setLetra5("");
   };
 
   return (
   <div className="card">
-  {/* <h3 className="card-title">{props.palavra}</h3> */}
+  <h3 className="card-title">{props.palavra}</h3>
   <div className="tentativa">
     <div className={`${color1[0]}`}>{tentativa1[0]}</div>
     <div className={`${color1[1]}`}>{tentativa1[1]}</div>
@@ -163,8 +235,18 @@ export default function Words(props) {
     <div className={`${color6[3]}`}>{tentativa6[3]}</div>
     <div className={`${color6[4]}`}>{tentativa6[4]}</div>
   </div>
-  <input type="text" id="name" name="name" required
-       minLength="5" maxLength="5" size="10" value={tentativa} onChange={entradaChang}></input>
+  {/* <input className="entrada" type="text" id="aaa" name="aaa" required
+       minLength="5" maxLength="5" size="10" value={tentativa} onChange={entradaChange} autoFocus={teste}></input> */}
+  <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
+       minLength="1" maxLength="1" size="10" value={letra1} onChange={letra1Change} autoFocus></input>
+  <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
+       minLength="1" maxLength="1" size="10" value={letra2} onChange={letra2Change}></input>
+  <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
+        minLength="1" maxLength="1" size="10" value={letra3} onChange={letra3Change}></input>
+  <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
+        minLength="1" maxLength="1" size="10" value={letra4} onChange={letra4Change}></input>
+  <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
+        minLength="1" maxLength="1" size="10" value={letra5} onChange={letra5Change}></input>
   <input type={"submit"} value={"Submit"} onClick={comparaEntrada}></input>
 
   <button onClick={tentarNovamente}>Jogar Novamente</button>

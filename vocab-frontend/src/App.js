@@ -17,7 +17,6 @@ function App() {
   //se for igual, mostrar a palavra
   //se for diferente, mostrar a palavra com a letra errada em vermelho
   //se for igual, mostrar a palavra com a letra correta em verde
-
   function reiniciarJogo() {
     axios
       .get("http://127.0.0.1:8000/api/palavras/rand/")
