@@ -237,18 +237,20 @@ export default function Words(props) {
   </div>
   {/* <input className="entrada" type="text" id="aaa" name="aaa" required
        minLength="5" maxLength="5" size="10" value={tentativa} onChange={entradaChange} autoFocus={teste}></input> */}
-  <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
-       minLength="1" maxLength="1" size="10" value={letra1} onChange={letra1Change} autoFocus></input>
-  <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
-       minLength="1" maxLength="1" size="10" value={letra2} onChange={letra2Change}></input>
-  <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
-        minLength="1" maxLength="1" size="10" value={letra3} onChange={letra3Change}></input>
-  <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
-        minLength="1" maxLength="1" size="10" value={letra4} onChange={letra4Change}></input>
-  <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
-        minLength="1" maxLength="1" size="10" value={letra5} onChange={letra5Change}></input>
-  <input type={"submit"} value={"Submit"} onClick={comparaEntrada}></input>
+  <div className="espaco">
+    <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
+        minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
+    <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
+        minLength="1" maxLength="1" size="3" value={letra2} onChange={letra2Change}></input>
+    <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
+          minLength="1" maxLength="1" size="3" value={letra3} onChange={letra3Change}></input>
+    <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
+          minLength="1" maxLength="1" size="3" value={letra4} onChange={letra4Change}></input>
+    <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
+          minLength="1" maxLength="1" size="3" value={letra5} onChange={letra5Change}></input>
+  </div>
+  <input className="btn" type={"submit"} value={"Submit"} onClick={comparaEntrada}></input>
 
-  <button onClick={tentarNovamente}>Jogar Novamente</button>
+  <button className="btn" onClick={tentarNovamente}>Jogar Novamente</button>
   </div>);
 }
