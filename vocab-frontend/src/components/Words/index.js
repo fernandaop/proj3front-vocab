@@ -25,6 +25,7 @@ export default function Words(props) {
   const letra3Flag = useRef(null);
   const letra4Flag = useRef(null);
   const letra5Flag = useRef(null);
+  const submitFlag = useRef(null);
 
   // function compareWords(palavrausuario){
   //   for (let i = 0; i < palavra.length; i++) {
@@ -71,6 +72,9 @@ export default function Words(props) {
       setColor5(dicionario);
     } else if (n_tentativa === 6){
       setColor6(dicionario);
+      if (color6 !== ["green", "green", "green", "green", "green"]){
+        alert("Você perdeu!");
+      }
     }
     if (tentativa === props.palavra) {
       alert("Acertou!");
@@ -111,9 +115,9 @@ export default function Words(props) {
   };
   const letra5Change = (e) => {
     setLetra5(e.target.value);
-    console.log(letra5);
     if (e.target.value.length === 1) {
       setTentativa(letra1 + letra2 + letra3 + letra4 + e.target.value);
+      submitFlag.current.focus();
     } else {
       letra4Flag.current.focus();
     }
@@ -131,40 +135,45 @@ export default function Words(props) {
   //   return palavra;
   // };
 
-  const comparaEntrada  = (e) => {
+  function comparaEntrada (e) {
     e.preventDefault();
-    setLetra1("");
-    setLetra2("");
-    setLetra3("");
-    setLetra4("");
-    setLetra5("");
-    letra1Flag.current.focus();
-    if (tentativa.length < 5) {
-      alert("Digite uma palavra de 5 letras")
-    } else {
-      if (tentativa1 === "") {
-        setTentativa1(tentativa);
-        compareWords(tentativa, 1);
-      } else if (tentativa2 === "") {
-        setTentativa2(tentativa);
-        compareWords(tentativa, 2);
-      } else if (tentativa3 === "") {
-        setTentativa3(tentativa);
-        compareWords(tentativa, 3);
-      } else if (tentativa4 === "") {
-        setTentativa4(tentativa);
-        compareWords(tentativa, 4);
-      } else if (tentativa5 === "") {
-        setTentativa5(tentativa);
-        compareWords(tentativa, 5);
-      } else if (tentativa6 === "") {
-        setTentativa6(tentativa);
-        compareWords(tentativa, 6);
+    console.log("tentativa: " + tentativa);
+    if (e.keyCode === 13) {
+      setLetra1("");
+      setLetra2("");
+      setLetra3("");
+      setLetra4("");
+      setLetra5("");
+      letra1Flag.current.focus();
+      if (tentativa.length < 5) {
+        alert("Digite uma palavra de 5 letras")
       } else {
-        alert("Você perdeu!");
-      }
+        if (tentativa1 === "") {
+          setTentativa1(tentativa);
+          compareWords(tentativa, 1);
+        } else if (tentativa2 === "") {
+          setTentativa2(tentativa);
+          compareWords(tentativa, 2);
+        } else if (tentativa3 === "") {
+          setTentativa3(tentativa);
+          compareWords(tentativa, 3);
+        } else if (tentativa4 === "") {
+          setTentativa4(tentativa);
+          compareWords(tentativa, 4);
+        } else if (tentativa5 === "") {
+          setTentativa5(tentativa);
+          compareWords(tentativa, 5);
+        } else if (tentativa6 === "") {
+          setTentativa6(tentativa);
+          compareWords(tentativa, 6);
+        }
+      setTentativa("");
+    }
+  } else if(e.keyCode === 8){
+    letra5Flag.current.focus();
+  } else {
+    //pass
   }
-  setTentativa("");
   };
   const tentarNovamente = (e) => {
     e.preventDefault();
@@ -190,66 +199,173 @@ export default function Words(props) {
     setLetra5("");
   };
 
+  function inputOrTentativa1() {
+    if(tentativa1 === ""){
+      return ( <div className="espaco">
+      <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
+          minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
+      <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
+          minLength="1" maxLength="1" size="3" value={letra2} onChange={letra2Change}></input>
+      <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
+            minLength="1" maxLength="1" size="3" value={letra3} onChange={letra3Change}></input>
+      <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
+            minLength="1" maxLength="1" size="3" value={letra4} onChange={letra4Change}></input>
+      <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
+            minLength="1" maxLength="1" size="3" value={letra5} onChange={letra5Change}></input>
+    </div>);
+    }else{
+      return (
+        <div className="tentativa">
+        <div className={`${color1[0]}`}>{tentativa1[0]}</div>
+        <div className={`${color1[1]}`}>{tentativa1[1]}</div>
+        <div className={`${color1[2]}`}>{tentativa1[2]}</div>
+        <div className={`${color1[3]}`}>{tentativa1[3]}</div>
+        <div className={`${color1[4]}`}>{tentativa1[4]}</div>
+      </div>
+      );
+    }
+  }
+  function inputOrTentativa2() {
+    if(tentativa1 !=="" && tentativa2 === ""){
+      return ( <div className="espaco">
+      <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
+          minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
+      <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
+          minLength="1" maxLength="1" size="3" value={letra2} onChange={letra2Change}></input>
+      <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
+            minLength="1" maxLength="1" size="3" value={letra3} onChange={letra3Change}></input>
+      <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
+            minLength="1" maxLength="1" size="3" value={letra4} onChange={letra4Change}></input>
+      <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
+            minLength="1" maxLength="1" size="3" value={letra5} onChange={letra5Change}></input>
+    </div>);
+    }else{
+      return (
+        <div className="tentativa">
+        <div className={`${color2[0]}`}>{tentativa2[0]}</div>
+        <div className={`${color2[1]}`}>{tentativa2[1]}</div>
+        <div className={`${color2[2]}`}>{tentativa2[2]}</div>
+        <div className={`${color2[3]}`}>{tentativa2[3]}</div>
+        <div className={`${color2[4]}`}>{tentativa2[4]}</div>
+      </div>
+      );
+    }
+  }
+  function inputOrTentativa3() {
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 === ""){
+      return ( <div className="espaco">
+      <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
+          minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
+      <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
+          minLength="1" maxLength="1" size="3" value={letra2} onChange={letra2Change}></input>
+      <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
+            minLength="1" maxLength="1" size="3" value={letra3} onChange={letra3Change}></input>
+      <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
+            minLength="1" maxLength="1" size="3" value={letra4} onChange={letra4Change}></input>
+      <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
+            minLength="1" maxLength="1" size="3" value={letra5} onChange={letra5Change}></input>
+    </div>);
+    }else{
+      return (
+        <div className="tentativa">
+        <div className={`${color3[0]}`}>{tentativa3[0]}</div>
+        <div className={`${color3[1]}`}>{tentativa3[1]}</div>
+        <div className={`${color3[2]}`}>{tentativa3[2]}</div>
+        <div className={`${color3[3]}`}>{tentativa3[3]}</div>
+        <div className={`${color3[4]}`}>{tentativa3[4]}</div>
+      </div>
+      );
+    }
+  }
+  function inputOrTentativa4() {
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 === ""){
+      return ( <div className="espaco">
+      <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
+          minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
+      <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
+          minLength="1" maxLength="1" size="3" value={letra2} onChange={letra2Change}></input>
+      <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
+            minLength="1" maxLength="1" size="3" value={letra3} onChange={letra3Change}></input>
+      <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
+            minLength="1" maxLength="1" size="3" value={letra4} onChange={letra4Change}></input>
+      <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
+            minLength="1" maxLength="1" size="3" value={letra5} onChange={letra5Change}></input>
+    </div>);
+    }else{
+      return (
+        <div className="tentativa">
+        <div className={`${color4[0]}`}>{tentativa4[0]}</div>
+        <div className={`${color4[1]}`}>{tentativa4[1]}</div>
+        <div className={`${color4[2]}`}>{tentativa4[2]}</div>
+        <div className={`${color4[3]}`}>{tentativa4[3]}</div>
+        <div className={`${color4[4]}`}>{tentativa4[4]}</div>
+      </div>
+      );
+    }
+  }
+  function inputOrTentativa5() {
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 === ""){
+      return ( <div className="espaco">
+      <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
+          minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
+      <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
+          minLength="1" maxLength="1" size="3" value={letra2} onChange={letra2Change}></input>
+      <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
+            minLength="1" maxLength="1" size="3" value={letra3} onChange={letra3Change}></input>
+      <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
+            minLength="1" maxLength="1" size="3" value={letra4} onChange={letra4Change}></input>
+      <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
+            minLength="1" maxLength="1" size="3" value={letra5} onChange={letra5Change}></input>
+    </div>);
+    }else{
+      return (
+        <div className="tentativa">
+        <div className={`${color5[0]}`}>{tentativa5[0]}</div>
+        <div className={`${color5[1]}`}>{tentativa5[1]}</div>
+        <div className={`${color5[2]}`}>{tentativa5[2]}</div>
+        <div className={`${color5[3]}`}>{tentativa5[3]}</div>
+        <div className={`${color5[4]}`}>{tentativa5[4]}</div>
+      </div>
+      );
+    }
+  }
+  function inputOrTentativa6() {
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 !== "" && tentativa6 === ""){
+      return ( <div className="espaco">
+      <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
+          minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
+      <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
+          minLength="1" maxLength="1" size="3" value={letra2} onChange={letra2Change}></input>
+      <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
+            minLength="1" maxLength="1" size="3" value={letra3} onChange={letra3Change}></input>
+      <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
+            minLength="1" maxLength="1" size="3" value={letra4} onChange={letra4Change}></input>
+      <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
+            minLength="1" maxLength="1" size="3" value={letra5} onChange={letra5Change}></input>
+    </div>);
+    }else{
+      return (
+        <div className="tentativa">
+        <div className={`${color6[0]}`}>{tentativa6[0]}</div>
+        <div className={`${color6[1]}`}>{tentativa6[1]}</div>
+        <div className={`${color6[2]}`}>{tentativa6[2]}</div>
+        <div className={`${color6[3]}`}>{tentativa6[3]}</div>
+        <div className={`${color6[4]}`}>{tentativa6[4]}</div>
+      </div>
+      );
+    }
+  }
+
   return (
   <div className="card">
   <h3 className="card-title">{props.palavra}</h3>
-  <div className="tentativa">
-    <div className={`${color1[0]}`}>{tentativa1[0]}</div>
-    <div className={`${color1[1]}`}>{tentativa1[1]}</div>
-    <div className={`${color1[2]}`}>{tentativa1[2]}</div>
-    <div className={`${color1[3]}`}>{tentativa1[3]}</div>
-    <div className={`${color1[4]}`}>{tentativa1[4]}</div>
-  </div>
-  <div className="tentativa">
-    <div className={`${color2[0]}`}>{tentativa2[0]}</div>
-    <div className={`${color2[1]}`}>{tentativa2[1]}</div>
-    <div className={`${color2[2]}`}>{tentativa2[2]}</div>
-    <div className={`${color2[3]}`}>{tentativa2[3]}</div>
-    <div className={`${color2[4]}`}>{tentativa2[4]}</div>
-  </div>
-  <div className="tentativa">
-    <div className={`${color3[0]}`}>{tentativa3[0]}</div>
-    <div className={`${color3[1]}`}>{tentativa3[1]}</div>
-    <div className={`${color3[2]}`}>{tentativa3[2]}</div>
-    <div className={`${color3[3]}`}>{tentativa3[3]}</div>
-    <div className={`${color3[4]}`}>{tentativa3[4]}</div>
-  </div>
-  <div className="tentativa">
-    <div className={`${color4[0]}`}>{tentativa4[0]}</div>
-    <div className={`${color4[1]}`}>{tentativa4[1]}</div>
-    <div className={`${color4[2]}`}>{tentativa4[2]}</div>
-    <div className={`${color4[3]}`}>{tentativa4[3]}</div>
-    <div className={`${color4[4]}`}>{tentativa4[4]}</div>
-  </div>
-  <div className="tentativa">
-    <div className={`${color5[0]}`}>{tentativa5[0]}</div>
-    <div className={`${color5[1]}`}>{tentativa5[1]}</div>
-    <div className={`${color5[2]}`}>{tentativa5[2]}</div>
-    <div className={`${color5[3]}`}>{tentativa5[3]}</div>
-    <div className={`${color5[4]}`}>{tentativa5[4]}</div>
-  </div>
-  <div className="tentativa">
-    <div className={`${color6[0]}`}>{tentativa6[0]}</div>
-    <div className={`${color6[1]}`}>{tentativa6[1]}</div>
-    <div className={`${color6[2]}`}>{tentativa6[2]}</div>
-    <div className={`${color6[3]}`}>{tentativa6[3]}</div>
-    <div className={`${color6[4]}`}>{tentativa6[4]}</div>
-  </div>
-  {/* <input className="entrada" type="text" id="aaa" name="aaa" required
-       minLength="5" maxLength="5" size="10" value={tentativa} onChange={entradaChange} autoFocus={teste}></input> */}
-  <div className="espaco">
-    <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
-        minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
-    <input className="entrada" type="text" id="letra2" ref={letra2Flag} name="letra2" required
-        minLength="1" maxLength="1" size="3" value={letra2} onChange={letra2Change}></input>
-    <input className="entrada" type="text" id="letra3" ref={letra3Flag} name="letra3" required
-          minLength="1" maxLength="1" size="3" value={letra3} onChange={letra3Change}></input>
-    <input className="entrada" type="text" id="letra4" ref={letra4Flag} name="letra4" required
-          minLength="1" maxLength="1" size="3" value={letra4} onChange={letra4Change}></input>
-    <input className="entrada" type="text" id="letra5" ref={letra5Flag} name="letra5" required
-          minLength="1" maxLength="1" size="3" value={letra5} onChange={letra5Change}></input>
-  </div>
-  <input className="btn" type={"submit"} value={"Submit"} onClick={comparaEntrada}></input>
+  {inputOrTentativa1()}
+  {inputOrTentativa2()}
+  {inputOrTentativa3()}
+  {inputOrTentativa4()}
+  {inputOrTentativa5()}
+  {inputOrTentativa6()}
+  <input className="btn" type={"submit"} value={"Submit"} ref={submitFlag} onKeyDown={comparaEntrada}></input>
 
   <button className="btn" onClick={tentarNovamente}>Jogar Novamente</button>
   </div>);
