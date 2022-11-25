@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./index.css";
 
 export default function Words(props) {
+  const [acabou, setAcabou] = React.useState(false);
   const [tentativa, setTentativa] = React.useState("");
   const [tentativa1, setTentativa1] = React.useState("");
   const [color1, setColor1] = React.useState(["gray", "gray", "gray", "gray", "gray"]);
@@ -27,18 +28,11 @@ export default function Words(props) {
   const letra5Flag = useRef(null);
   const submitFlag = useRef(null);
 
-  // function compareWords(palavrausuario){
-  //   for (let i = 0; i < palavra.length; i++) {
-  //     if (palavra[i] === palavrausuario[i]) {
-  //       comp = 1;
-  //     } else {
-  //       comp= -1;}
-  //     return comp;
-  //   }
-  // }
   function compareWords(palavrausuario, n_tentativa){
     let dicionario = ["", "", "", "", ""];
     let compara = props.palavra;
+    palavrausuario = palavrausuario.toLowerCase();
+    compara = removerAcentos(compara);
     for (let i = 0; i < props.palavra.length; i++) {
       if (compara[i] === palavrausuario[i]) {
         dicionario[i] = "green";
@@ -72,11 +66,13 @@ export default function Words(props) {
       setColor5(dicionario);
     } else if (n_tentativa === 6){
       setColor6(dicionario);
-      if (color6 !== ["green", "green", "green", "green", "green"]){
+      if (dicionario.includes("gray") || dicionario.includes("yellow")){
+        setAcabou(true);
         alert("Você perdeu!");
       }
     }
     if (tentativa === props.palavra) {
+      setAcabou(true);
       alert("Acertou!");
     }
   }
@@ -123,21 +119,21 @@ export default function Words(props) {
     }
   };
 
-  // function removerAcentos(palavra) {
-  //   for(var i = 0; i < palavra.length; i++) {
-  //     palavra = palavra.replace(new RegExp('[áàâã]','gi'), 'a');
-  //     palavra = palavra.replace(new RegExp('[éèê]','gi'), 'e');
-  //     palavra = palavra.replace(new RegExp('[íìî]','gi'), 'i');
-  //     palavra = palavra.replace(new RegExp('[óòôõ]','gi'), 'o');
-  //     palavra = palavra.replace(new RegExp('[úùû]','gi'), 'u');
-  //     palavra = palavra.replace(new RegExp('[ç]','gi'), 'c');
-  //   }
-  //   return palavra;
-  // };
+  function removerAcentos(palavra) {
+    for(var i = 0; i < palavra.length; i++) {
+      palavra = palavra.replace(new RegExp('[áàâã]','gi'), 'a');
+      palavra = palavra.replace(new RegExp('[éèê]','gi'), 'e');
+      palavra = palavra.replace(new RegExp('[íìî]','gi'), 'i');
+      palavra = palavra.replace(new RegExp('[óòôõ]','gi'), 'o');
+      palavra = palavra.replace(new RegExp('[úùû]','gi'), 'u');
+      palavra = palavra.replace(new RegExp('[ç]','gi'), 'c');
+    }
+    return palavra;
+  };
 
   function comparaEntrada (e) {
     e.preventDefault();
-    console.log("tentativa: " + tentativa);
+    // console.log("tentativa: " + tentativa);
     if (e.keyCode === 13) {
       setLetra1("");
       setLetra2("");
@@ -149,22 +145,22 @@ export default function Words(props) {
         alert("Digite uma palavra de 5 letras")
       } else {
         if (tentativa1 === "") {
-          setTentativa1(tentativa);
+          setTentativa1(tentativa.toLowerCase());
           compareWords(tentativa, 1);
         } else if (tentativa2 === "") {
-          setTentativa2(tentativa);
+          setTentativa2(tentativa.toLowerCase());
           compareWords(tentativa, 2);
         } else if (tentativa3 === "") {
-          setTentativa3(tentativa);
+          setTentativa3(tentativa.toLowerCase());
           compareWords(tentativa, 3);
         } else if (tentativa4 === "") {
-          setTentativa4(tentativa);
+          setTentativa4(tentativa.toLowerCase());
           compareWords(tentativa, 4);
         } else if (tentativa5 === "") {
-          setTentativa5(tentativa);
+          setTentativa5(tentativa.toLowerCase());
           compareWords(tentativa, 5);
         } else if (tentativa6 === "") {
-          setTentativa6(tentativa);
+          setTentativa6(tentativa.toLowerCase());
           compareWords(tentativa, 6);
         }
       setTentativa("");
@@ -226,7 +222,7 @@ export default function Words(props) {
     }
   }
   function inputOrTentativa2() {
-    if(tentativa1 !=="" && tentativa2 === ""){
+    if(tentativa1 !=="" && tentativa2 === "" && acabou === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
@@ -252,7 +248,7 @@ export default function Words(props) {
     }
   }
   function inputOrTentativa3() {
-    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 === ""){
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 === "" && acabou === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
@@ -278,7 +274,7 @@ export default function Words(props) {
     }
   }
   function inputOrTentativa4() {
-    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 === ""){
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 === "" && acabou === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
@@ -304,7 +300,7 @@ export default function Words(props) {
     }
   }
   function inputOrTentativa5() {
-    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 === ""){
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 === "" && acabou === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
@@ -330,7 +326,7 @@ export default function Words(props) {
     }
   }
   function inputOrTentativa6() {
-    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 !== "" && tentativa6 === ""){
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 !== "" && tentativa6 === ""  && acabou === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
@@ -355,10 +351,19 @@ export default function Words(props) {
       );
     }
   }
-
+  function mostrarPalavra() {
+    if (acabou) {
+      return (<div className="palavra">
+        <div className="palavra">{props.palavra}</div>
+      </div>);
+    } else {
+      return (<div></div>);
+    }
+  }
   return (
   <div className="card">
-  <h3 className="card-title">{props.palavra}</h3>
+  <div>{props.palavra}</div>
+  {mostrarPalavra()}
   {inputOrTentativa1()}
   {inputOrTentativa2()}
   {inputOrTentativa3()}
