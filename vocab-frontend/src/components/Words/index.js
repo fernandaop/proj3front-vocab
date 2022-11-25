@@ -362,7 +362,7 @@ export default function Words(props) {
   }
   return (
   <div className="card">
-  <div>{props.palavra}</div>
+  {/* <div>{props.palavra}</div> */}
   {mostrarPalavra()}
   {inputOrTentativa1()}
   {inputOrTentativa2()}
