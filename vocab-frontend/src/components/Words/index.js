@@ -407,7 +407,7 @@ export default function Words(props) {
     }
   }
   return (
-  <div>
+  <div className="func">
     <div className="card">
     {/* <div>{props.palavra}</div> */}
     {mostrarPalavra()}
@@ -417,48 +417,49 @@ export default function Words(props) {
     {inputOrTentativa4()}
     {inputOrTentativa5()}
     {inputOrTentativa6()}
-    <input className="btn" type={"submit"} value={"Enviar"} ref={submitFlag} onKeyDown={comparaEntrada} onClick={comparaEntrada}></input>
-
+    <div className="buttons">
+    <input className="btn" type="submit" ref={submitFlag} onKeyDown={comparaEntrada} onClick={comparaEntrada}></input>
     <button className="btn" onClick={tentarNovamente}>Jogar Novamente</button>
-
+    </div>
     </div>
     <div className="teclado">
       <div className="linha">
-        <button value={"q"} onClick={apertaTecla}>Q</button>
-        <button value={"w"} onClick={apertaTecla}>W</button>
-        <button value={"e"} onClick={apertaTecla}>E</button>
-        <button value={"r"} onClick={apertaTecla}>R</button>
-        <button value={"t"} onClick={apertaTecla}>T</button>
-        <button value={"y"} onClick={apertaTecla}>Y</button>
-        <button value={"u"} onClick={apertaTecla}>U</button>
-        <button value={"i"} onClick={apertaTecla}>I</button>
-        <button value={"o"} onClick={apertaTecla}>O</button>
-        <button value={"p"} onClick={apertaTecla}>P</button>
+        <button className="letra" value={"q"} onClick={apertaTecla}>Q</button>
+        <button className="letra" value={"w"} onClick={apertaTecla}>W</button>
+        <button className="letra" value={"e"} onClick={apertaTecla}>E</button>
+        <button className="letra" value={"r"} onClick={apertaTecla}>R</button>
+        <button className="letra" value={"t"} onClick={apertaTecla}>T</button>
+        <button className="letra" value={"y"} onClick={apertaTecla}>Y</button>
+        <button className="letra" value={"u"} onClick={apertaTecla}>U</button>
+        <button className="letra" value={"i"} onClick={apertaTecla}>I</button>
+        <button className="letra" value={"o"} onClick={apertaTecla}>O</button>
+        <button className="letra" value={"p"} onClick={apertaTecla}>P</button>
       </div>
       <div className="linha">
-        <button value={"a"} onClick={apertaTecla}>A</button>
-        <button value={"s"} onClick={apertaTecla}>S</button>
-        <button value={"d"} onClick={apertaTecla}>D</button>
-        <button value={"f"} onClick={apertaTecla}>F</button>
-        <button value={"g"} onClick={apertaTecla}>G</button>
-        <button value={"h"} onClick={apertaTecla}>H</button>
-        <button value={"j"} onClick={apertaTecla}>J</button>
-        <button value={"k"} onClick={apertaTecla}>K</button>
-        <button value={"l"} onClick={apertaTecla}>L</button>
+        <button className="letra" value={"a"} onClick={apertaTecla}>A</button>
+        <button className="letra" value={"s"} onClick={apertaTecla}>S</button>
+        <button className="letra" value={"d"} onClick={apertaTecla}>D</button>
+        <button className="letra" value={"f"} onClick={apertaTecla}>F</button>
+        <button className="letra" value={"g"} onClick={apertaTecla}>G</button>
+        <button className="letra" value={"h"} onClick={apertaTecla}>H</button>
+        <button className="letra" value={"j"} onClick={apertaTecla}>J</button>
+        <button className="letra" value={"k"} onClick={apertaTecla}>K</button>
+        <button className="letra" value={"l"} onClick={apertaTecla}>L</button>
       </div>
       <div className="linha">
-        <button value={"z"} onClick={apertaTecla}>Z</button>
-        <button value={"x"} onClick={apertaTecla}>X</button>
-        <button value={"c"} onClick={apertaTecla}>C</button>
-        <button value={"v"} onClick={apertaTecla}>V</button>
-        <button value={"b"} onClick={apertaTecla}>B</button>
-        <button value={"n"} onClick={apertaTecla}>N</button>
-        <button value={"m"} onClick={apertaTecla}>M</button>
+        <button className="letra" value={"z"} onClick={apertaTecla}>Z</button>
+        <button className="letra" value={"x"} onClick={apertaTecla}>X</button>
+        <button className="letra" value={"c"} onClick={apertaTecla}>C</button>
+        <button className="letra" value={"v"} onClick={apertaTecla}>V</button>
+        <button className="letra" value={"b"} onClick={apertaTecla}>B</button>
+        <button className="letra" value={"n"} onClick={apertaTecla}>N</button>
+        <button className="letra" value={"m"} onClick={apertaTecla}>M</button>
+      </div>
+      <div className="linha">
+        <button className="letra" onClick={comparaEntrada}>Enter</button>
+        <button className="letra" onClick={apagaLetra}>Del</button>
       </div>
       </div>
-
-      <button onClick={comparaEntrada}>Enter</button>
-      <button onClick={apagaLetra}>Del</button>
   </div>
 
   );
