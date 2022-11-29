@@ -4,24 +4,30 @@ import Appbar from "../Appbar";
 import "./index.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Termo(props) {
     const [vocabs, setVocabs] = useState([]); // Remova o array de notes que existia na versão anterior
+    const { state } = useLocation()
 
     useEffect(() => {
+      const acesso = 'Token ' + state;
       axios
-        .get("http://127.0.0.1:8000/api/palavras/rand/")
-        .then((res) => setVocabs(res.data));
+        .get("http://127.0.0.1:8000/api/palavras/rand/", { headers: { 'Content-Type':'application/json', 'Accept':'application/json', 'Authorization': acesso } })
+        .then((res) => {setVocabs(res.data);
+          console.log(res.data);
+          console.log('entrou');}
+        );
     }, []);
-    
-    //comparar palavra com o que o usuario digitou letra por letra
-    //se a letra for igual, mostrar a letra correta em verde
-    //se a letra nao for igual mas estiver em outro lugar da palavra, mostrar a letra em amarelo
    
     function reiniciarJogo() {
+      const acesso = 'Token ' + state;
       axios
-        .get("http://127.0.0.1:8000/api/palavras/rand/")
-        .then((res) => setVocabs(res.data));
+        .get("http://127.0.0.1:8000/api/palavras/rand/", { headers: { 'Content-Type':'application/json', 'Accept':'application/json', 'Authorization': acesso } })
+        .then((res) => {setVocabs(res.data);
+          console.log(vocabs);
+          console.log(res.data);
+          console.log('entrou');});
     };  
   
     return (

@@ -6,8 +6,8 @@ export default function Appbar(props) {
     <div className="App">
         <div className="appbar">
             <Link to="/uno" className="Appbar-button">Uno</Link>
-            <Link to="/dueto" className="Appbar-button">Dueto</Link>
-            <Link to="/quarteto" className="Appbar-button">Quarteto</Link>
+            {/* <Link to="/dueto" className="Appbar-button">Dueto</Link>
+            <Link to="/quarteto" className="Appbar-button-2">Quarteto</Link> */}
             <Outlet />
         </div>
         <h1> <span className="titlev">TERMO</span> </h1>

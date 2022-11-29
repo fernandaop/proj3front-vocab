@@ -23,7 +23,17 @@ html{
     border-color: transparent;
     color: #fafaff;
     font-family: Mitr, sans-serif;
-    font-weight: 4vh;
+    font-weight: 20px;
+    text-decoration: none;
+}
+.Appbar-button-2{
+    background-color: #222222;
+    border-color: transparent;
+    color: #fafaff;
+    font-family: Mitr, sans-serif;
+    font-weight: 20px;
+    text-decoration: none;
+    margin-right: 20px;
 }
 .titlev{
     color: #FAFAFF;

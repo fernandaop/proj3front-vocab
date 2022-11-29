@@ -2,6 +2,11 @@ import React, { useRef } from "react";
 import "./index.css";
 
 export default function Words(props) {
+
+  //comparar palavra com o que o usuario digitou letra por letra
+  //se a letra for igual, mostrar a letra correta em verde
+  //se a letra nao for igual mas estiver em outro lugar da palavra, mostrar a letra em amarelo
+
   const [acabou, setAcabou] = React.useState(false);
   const [tentativa, setTentativa] = React.useState("");
   const [tentativa1, setTentativa1] = React.useState("");
@@ -409,7 +414,6 @@ export default function Words(props) {
   return (
   <div className="func">
     <div className="card">
-    {/* <div>{props.palavra}</div> */}
     {mostrarPalavra()}
     {inputOrTentativa1()}
     {inputOrTentativa2()}
@@ -461,6 +465,5 @@ export default function Words(props) {
       </div>
       </div>
   </div>
-
   );
 }

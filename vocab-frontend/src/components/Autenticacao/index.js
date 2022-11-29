@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "./index.css";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Autenticacao(props) {
     const [user, setUser] = useState("")
     const [password, setPassword] = useState("")
     const [userCadastro, setUserCadastro] = useState("")
     const [passwordCadastro, setPasswordCadastro] = useState("")
-    
+    const navigate = useNavigate()
     const options = { headers: {'Content-Type':'application/json', 'Accept':'application/json'} };
 
     function enviarInfoLogin(event){
@@ -17,17 +17,22 @@ export default function Autenticacao(props) {
           .post('http://127.0.0.1:8000/api/palavras/token/',{username: user, password: password}, options)
           .then((response) => {
             const acesso = response.data.token;
-            return acesso;
-          });
+            console.log(acesso);
+            navigate("/uno", { state: acesso })
+            setUser("");
+            setPassword("");
+        });
       }
 
     function enviarInfoCadastro(event){
-    event.preventDefault();
-    axios
-        .post('http://127.0.0.1:8000/api/cadastro/',{username: userCadastro, password: passwordCadastro}, options)
-        .then((response) => {
-        const acesso = response.data.token;
-        return acesso;
+        event.preventDefault();
+        axios
+            .post('http://127.0.0.1:8000/api/cadastro/',{username: userCadastro, password: passwordCadastro}, options)
+            .then((response) => {
+            const acesso = response.data.token;
+            navigate("/uno", { state: acesso })
+            setUserCadastro("");
+            setPasswordCadastro("");
         });
     }
 

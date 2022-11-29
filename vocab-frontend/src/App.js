@@ -1,6 +1,4 @@
 import "./App.css";
-// import axios from "axios";
-// import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Autenticacao from "./components/Autenticacao";
 import Termo from "./components/Termo";
