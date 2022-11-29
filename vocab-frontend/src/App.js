@@ -1,41 +1,23 @@
-import Vocab from "./components/Vocab";
 import "./App.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import Words from "./components/Words";
+// import axios from "axios";
+// import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Autenticacao from "./components/Autenticacao";
+import Termo from "./components/Termo";
+// import Dueto from "./components/Dueto";
+// import Quarteto from "./components/Quarteto";
 
 function App() {
-  const [vocabs, setVocabs] = useState([]); // Remova o array de notes que existia na versão anterior
-
-  useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/api/palavras/rand/")
-      .then((res) => setVocabs(res.data));
-  }, []);
   
-  //comparar palavra com o que o usuario digitou letra por letra
-  //se for igual, mostrar a palavra
-  //se for diferente, mostrar a palavra com a letra errada em vermelho
-  //se for igual, mostrar a palavra com a letra correta em verde
-  function reiniciarJogo() {
-    axios
-      .get("http://127.0.0.1:8000/api/palavras/rand/")
-      .then((res) => setVocabs(res.data));
-  };
-
   return (
-    <div className="App">
-      <div className="appbar">
-        <button className="appbar-button">Uno</button>
-      </div>
-      <h1>
-        <span className="titlev">VOCAB</span>
-      </h1>
-      <div className="words">
-      {/* <Vocab>{vocabs.palavra}</Vocab> */}
-      <Words palavra={vocabs.palavra} reestart={reiniciarJogo}></Words>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Autenticacao/>}></Route>
+        <Route path="uno" element={<Termo/>}></Route>
+        {/* <Route path="dueto" element={<Dueto/>}></Route>
+        <Route path="quarteto" element={<Quarteto/>}></Route> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

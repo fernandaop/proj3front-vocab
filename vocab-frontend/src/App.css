@@ -24,41 +24,8 @@ html{
   text-align: center;
   color: #333;
 }
-.appbar{
-  background: #222222;
-  color: #ffffff;
-  font-family: "Permanent Marker", cursive;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 10px;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-}
-
-.titlev{
-  color: #FAFAFF;
-  font-family: 'Mitr', sans-serif;
-  font-weight: 600;
-  font-size: 1em;
-  margin: 2px;
-  font-weight: bold;
-}
 .words{
   display: flex;
-  justify-content: center;
-}
-h1{
-  font-weight: 600;
-  font-size: 4vh;
-  line-height: 6vh;
-  height: 6vh;
-  margin: 0;
-  padding: 0;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
   justify-content: center;
 }
 .appbar2{

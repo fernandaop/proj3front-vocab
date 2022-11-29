@@ -1,0 +1,46 @@
+html{
+    width: 100%;
+}
+.App {
+    text-align: center;
+    width: 100%;
+}
+.appbar{
+    background: #222222;
+    color: #ffffff;
+    font-family: "Permanent Marker", cursive;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    width: 100%;
+  }
+.Appbar-button{
+    background-color: #222222;
+    border-color: transparent;
+    color: #fafaff;
+    font-family: Mitr, sans-serif;
+    font-weight: 4vh;
+}
+.titlev{
+    color: #FAFAFF;
+    font-family: 'Mitr', sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    margin: 2px;
+    font-weight: bold;
+}
+h1{
+    font-weight: 600;
+    font-size: 4vh;
+    line-height: 6vh;
+    height: 6vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
