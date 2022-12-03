@@ -405,7 +405,7 @@ export default function Words(props) {
   function mostrarPalavra() {
     if (acabou) {
       return (<div className="palavra">
-        <div className="palavra">{props.palavra}</div>
+        <div className="palavra">Resposta: {props.palavra}</div>
       </div>);
     } else {
       return (<div></div>);

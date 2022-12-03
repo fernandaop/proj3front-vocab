@@ -1,6 +1,5 @@
 import React from "react";
 import Due from "../Due";
-// import Words from "../Words";
 import Appbar from "../Appbar";
 import "./index.css";
 import axios from "axios";

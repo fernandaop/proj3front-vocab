@@ -6,11 +6,11 @@ export default function Appbar(props) {
     <div className="App">
         <div className="appbar">
             <Link to="/uno" className="Appbar-button">Uno</Link>
-            <Link to="/dueto" state={props.state} className="Appbar-button">Dueto</Link>
+            <Link to="/dueto" state={props.state} className="Appbar-button-2">Dueto</Link>
             {/* <Link to="/quarteto" className="Appbar-button-2">Quarteto</Link> */}
             <Outlet />
         </div>
-        <h1> <span className="titlev">TERMO</span> </h1>
+        <h1> <span className="titlev">JOGO: TERMO</span> </h1>
     </div>
   );
 }

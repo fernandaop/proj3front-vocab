@@ -6,12 +6,16 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
-
-.card {
-  width: 200px;
+.centro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.info {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 .entrada{
   font-size: 15px;
@@ -81,6 +85,7 @@ button.btn{
   display: block;
   padding: 10px 15px;
   margin: 5px;
+  margin-bottom: 10px;
   overflow: hidden;
   border-width: 0;
   outline: none;
@@ -116,11 +121,23 @@ button.btn{
   transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
+.linhas{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.caixa2{
+  margin-right: 10%;
+}
 .linha{
   display: flex;
-  justify-content: row;
-}
-
-.caixa{
-  margin: 5px;
+  justify-content: space-around;
+  align-items: center;
+  size: 20px;
+  padding: 2px 2px;
+  grid-gap: 0.2em;
+  font-weight: 600;
+  font-family: 'Mitr', sans-serif;
+  color: #FAFAFF;
 }
