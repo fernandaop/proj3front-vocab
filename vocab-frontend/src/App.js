@@ -2,7 +2,9 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Autenticacao from "./components/Autenticacao";
 import Termo from "./components/Termo";
-// import Dueto from "./components/Dueto";
+// import Dueto from "./components/Due";
+import Termo2 from "./components/Termo2";
+import { useState } from "react";
 // import Quarteto from "./components/Quarteto";
 
 function App() {
@@ -12,8 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Autenticacao/>}></Route>
         <Route path="uno" element={<Termo/>}></Route>
-        {/* <Route path="dueto" element={<Dueto/>}></Route>
-        <Route path="quarteto" element={<Quarteto/>}></Route> */}
+        <Route path="dueto" element={<Termo2/>}></Route>
+        {/* <Route path="dueto" element={<Dueto/>}></Route> */}
+        {/* <Route path="quarteto" element={<Quarteto/>}></Route> */}
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,126 @@
+.tentativa{
+  display: flex;
+  justify-content: space-around;
+  align-items: row;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.card {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.entrada{
+  font-size: 15px;
+  height: 25px;
+  width: 25px;
+  font-weight: bold;
+}
+.espaco{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.word{
+  display: flex;
+  flex-wrap: nowrap;
+  grid-gap: 0.5vh;
+  justify-content: center;
+}  
+.letter{
+  width: 8vmin;
+  height: 8vmin;
+  border-radius: 10%;
+  background-color: #615458;
+  color: #fff;
+  font-size: 3vmin;
+}
+.mudaCor{
+  color: green;
+}
+.mudaCor2{
+  color: blue;
+}
+.green{
+  width: 30px;
+  height: 30px;
+  border-radius: 10%;
+  background-color: green;
+  font-size: 3vmin;
+  color: black;
+}
+
+.yellow{
+  width: 30px;
+  height: 30px;
+  border-radius: 10%;
+  background-color: yellow;
+  font-size: 3vmin;
+  color: black;
+}
+
+.gray{
+  width: 30px;
+  height: 30px;
+  border-radius: 10%;
+  background-color: gray;
+  font-size: 3vmin;
+  color: black;
+}
+button.btn{
+  margin-top: 20px;
+}
+.btn {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin: 5px;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  background-color: rgb(163, 161, 161);
+  transition: background-color 0.3s;
+  font-weight: bold;
+  font-size: 15px;
+}
+.btn > * {
+  position: relative;
+}
+.btn:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  padding-top: 0;
+  border-radius: 100%;
+  background-color: rgba(236, 240, 241, 0.3);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+}
+
+.linha{
+  display: flex;
+  justify-content: row;
+}
+
+.caixa{
+  margin: 5px;
+}

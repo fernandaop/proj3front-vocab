@@ -1,5 +1,6 @@
 import React from "react";
-import Words from "../Words";
+import Due from "../Due";
+// import Words from "../Words";
 import Appbar from "../Appbar";
 import "./index.css";
 import axios from "axios";
@@ -8,6 +9,7 @@ import { useLocation } from "react-router-dom";
 
 export default function Termo(props) {
     const [vocabs, setVocabs] = useState([]); // Remova o array de notes que existia na versão anterior
+    const [vocabsDue, setVocabsDue] = useState([]);
     const { state } = useLocation()
 
     useEffect(() => {
@@ -17,6 +19,12 @@ export default function Termo(props) {
         .then((res) => {setVocabs(res.data);
           console.log(res.data);
           console.log('entrou');}
+        );
+      axios
+        .get("http://127.0.0.1:8000/api/palavras/rand/", { headers: { 'Content-Type':'application/json', 'Accept':'application/json', 'Authorization': acesso } })
+        .then((res) => {setVocabsDue(res.data);
+          console.log(res.data);
+          console.log('entrou2');}
         );
     }, []);
 
@@ -32,8 +40,8 @@ export default function Termo(props) {
   
     return (
     <React.Fragment>
-        <Appbar state={state}/>
-        <Words palavra={vocabs.palavra} reestart={reiniciarJogo}></Words>
+        <Appbar/>
+        <Due palavra1={vocabs.palavra} palavra2={vocabsDue.palavra}  reestart={reiniciarJogo}></Due>
     </React.Fragment>
     );
 }
