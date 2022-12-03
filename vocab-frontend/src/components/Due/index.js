@@ -3,6 +3,7 @@ import "./index.css";
 
 export default function Due(props) {
   const [acabou, setAcabou] = React.useState(false);
+  const [acabou2, setAcabou2] = React.useState(false);
   const [tentativa, setTentativa] = React.useState("");
   const [tentativa1, setTentativa1] = React.useState("");
   const [color1, setColor1] = React.useState(["gray", "gray", "gray", "gray", "gray"]);
@@ -75,6 +76,7 @@ export default function Due(props) {
       setColor6(dicionario);
       if (dicionario.includes("gray") || dicionario.includes("yellow")){
         setAcabou(true);
+        setAcabou2(true);
         alert("Você perdeu!");
       }
     }
@@ -123,11 +125,12 @@ export default function Due(props) {
       setColor12(dicionario);
       if (dicionario.includes("gray") || dicionario.includes("yellow")){
         setAcabou(true);
+        setAcabou2(true);
         alert("Você perdeu!");
       }
     }
     if (tentativa === props.palavra2) {
-      setAcabou(true);
+      setAcabou2(true);
       alert("Acertou!");
     }
   }
@@ -486,7 +489,7 @@ export default function Due(props) {
     }
   }
   function inputOrTentativaDue2() {
-    if(tentativa1 !=="" && tentativa2 === "" && acabou === false){
+    if(tentativa1 !=="" && tentativa2 === "" && acabou2 === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
@@ -512,7 +515,7 @@ export default function Due(props) {
     }
   }
   function inputOrTentativaDue3() {
-    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 === "" && acabou === false){
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 === "" && acabou2 === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
@@ -538,7 +541,7 @@ export default function Due(props) {
     }
   }
   function inputOrTentativaDue4() {
-    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 === "" && acabou === false){
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 === "" && acabou2 === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
@@ -564,7 +567,7 @@ export default function Due(props) {
     }
   }
   function inputOrTentativaDue5() {
-    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 === "" && acabou === false){
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 === "" && acabou2 === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
@@ -590,7 +593,7 @@ export default function Due(props) {
     }
   }
   function inputOrTentativaDue6() {
-    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 !== "" && tentativa6 === ""  && acabou === false){
+    if(tentativa1 !=="" && tentativa2 !== "" && tentativa3 !== "" && tentativa4 !== "" && tentativa5 !== "" && tentativa6 === ""  && acabou2 === false){
       return ( <div className="espaco">
       <input className="entrada" type="text" id="letra1" ref={letra1Flag} name="letra1" required
           minLength="1" maxLength="1" size="3" value={letra1} onChange={letra1Change} autoFocus></input>
