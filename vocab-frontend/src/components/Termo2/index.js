@@ -1,6 +1,7 @@
 import React from "react";
 import Due from "../Due";
 import Appbar from "../Appbar";
+import Appbar2 from "../Appbar2";
 import "./index.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -35,11 +36,17 @@ export default function Termo(props) {
           console.log(vocabs);
           console.log(res.data);
           console.log('entrou');});
+          axios
+          .get("http://127.0.0.1:8000/api/palavras/rand/", { headers: { 'Content-Type':'application/json', 'Accept':'application/json', 'Authorization': acesso } })
+          .then((res) => {setVocabsDue(res.data);
+            console.log(res.data);
+            console.log('entrou2');}
+          );
     };  
   
     return (
     <React.Fragment>
-        <Appbar/>
+        <Appbar2/>
         <Due palavra1={vocabs.palavra} palavra2={vocabsDue.palavra}  reestart={reiniciarJogo}></Due>
     </React.Fragment>
     );

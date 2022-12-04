@@ -238,6 +238,8 @@ export default function Due(props) {
   const tentarNovamente = (e) => {
     e.preventDefault();
     props.reestart();
+    setAcabou(false);
+    setAcabou2(false);
     setTentativa("");
     setTentativa1("");
     setTentativa2("");
@@ -251,6 +253,12 @@ export default function Due(props) {
     setColor4(["gray", "gray", "gray", "gray", "gray"]);
     setColor5(["gray", "gray", "gray", "gray", "gray"]);
     setColor6(["gray", "gray", "gray", "gray", "gray"]);
+    setColor7(["gray", "gray", "gray", "gray", "gray"]);
+    setColor8(["gray", "gray", "gray", "gray", "gray"]);
+    setColor9(["gray", "gray", "gray", "gray", "gray"]);
+    setColor10(["gray", "gray", "gray", "gray", "gray"]);
+    setColor11(["gray", "gray", "gray", "gray", "gray"]);
+    setColor12(["gray", "gray", "gray", "gray", "gray"]);
     letra1Flag.current.focus();
     setLetra1("");
     setLetra2("");
@@ -628,7 +636,7 @@ export default function Due(props) {
     }
   }
   function mostrarPalavra2() {
-    if (acabou) {
+    if (acabou2) {
       return (<div className="palavra">
         <div className="palavra">{props.palavra2}</div>
       </div>);
@@ -640,8 +648,8 @@ export default function Due(props) {
   <div className="centro">
     <div className="info">
     <div className="linhas">
-      {mostrarPalavra1()}
-      <div className="caixa1">
+      <div className="'caixa1'">
+        {mostrarPalavra1()}
         {inputOrTentativa1()}
         {inputOrTentativa2()}
         {inputOrTentativa3()}

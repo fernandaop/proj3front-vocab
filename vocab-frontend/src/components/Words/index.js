@@ -180,6 +180,7 @@ export default function Words(props) {
   const tentarNovamente = (e) => {
     e.preventDefault();
     props.reestart();
+    setAcabou(false);
     setTentativa("");
     setTentativa1("");
     setTentativa2("");
