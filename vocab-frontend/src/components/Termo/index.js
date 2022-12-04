@@ -33,6 +33,7 @@ export default function Termo(props) {
     return (
     <React.Fragment>
         <Appbar state={state}/>
+        <audio src="water.mp3" autoPlay loop />
         <Words palavra={vocabs.palavra} reestart={reiniciarJogo}></Words>
     </React.Fragment>
     );

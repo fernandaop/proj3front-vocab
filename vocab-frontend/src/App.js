@@ -6,7 +6,7 @@ import Termo2 from "./components/Termo2";
 // import Quarteto from "./components/Quarteto";
 
 function App() {
-  
+
   return (
     <BrowserRouter>
       <Routes>
